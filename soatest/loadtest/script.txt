@@ -1,0 +1,16 @@
+
+# Using script commands
+#
+  
+var report-home = /usr/local/parasoft/soatest/loadtest/report
+var minutes = 3
+  
+var scenario = "Linear Increase"
+var base = /usr/local/parasoft/soatest/loadtest
+var category = Accuracy
+  
+var test-name = BillPayTest
+var test-name2 = DepositTest
+var test-name3 = WithdrawTest
+open ${base}/${test-name}.lt
+loadtest -minutes ${minutes} -allReports ${report-home}/%d/${category}/${test-name} ${scenario}
