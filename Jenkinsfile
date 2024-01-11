@@ -418,7 +418,7 @@ pipeline {
                     -run /usr/local/parasoft/soatest/loadtest/script.txt \
                     -licenseServer https://35.92.154.15:8443 \
                     -licenseUsername demo \
-                    -licensePassword demo-user \
+                    -licensePassword d3mo-user \
                     -licenseVus 5 \
                     "
                     '''
