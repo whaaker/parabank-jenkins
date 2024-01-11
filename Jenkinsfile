@@ -48,8 +48,8 @@ pipeline {
                     mkdir parabank-jenkins
                     git clone Loadtest-L https://github.com/whaaker/parabank-jenkins.git parabank-jenkins
 
-                    mkdir parabank
-                    git clone https://github.com/parasoft/parabank parabank
+                    #mkdir parabank
+                    #git clone https://github.com/parasoft/parabank parabank
 
                     # Debugging
                     #pwd
