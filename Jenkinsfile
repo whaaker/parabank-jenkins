@@ -46,7 +46,7 @@ pipeline {
                 sh  '''
                     # Clone this repository & Parabank repository into the workspace
                     mkdir parabank-jenkins
-                    git clone https://github.com/whaaker/parabank-jenkins.git parabank-jenkins
+                    git clone Loadtest-L https://github.com/whaaker/parabank-jenkins.git parabank-jenkins
 
                     mkdir parabank
                     git clone https://github.com/parasoft/parabank parabank
@@ -400,7 +400,27 @@ pipeline {
             steps {
                 // Run Load Test CLI from docker
                 sh  '''
-                    #TODO
+                    docker run \
+                    -u ${jenkins_uid}:${jenkins_gid} \
+                    --rm -i \
+                    --name loadtest \
+                    -e ACCEPT_EULA=true \
+                    -v "$PWD/parabank-jenkins/soatest:/usr/local/parasoft/soatest" \
+                    -w "/usr/local/parasoft" \
+                    --network=demo-net \
+                    $(docker build -q ./parabank-jenkins/soatest) /bin/bash -c " \
+
+                    cd soavirt; \
+               
+                    # Execute the project with SOAtest CLI
+                    ./loadtest \
+                    -cmd \
+                    -run /usr/local/parasoft/soatest/loadtest/script.txt \
+                    -licenseServer https://35.92.154.15:8443 \
+                    -licenseUsername demo \
+                    -licensePassword demo-user \
+                    -licenseVus 5 \
+                    "
                     '''
             }
         }
