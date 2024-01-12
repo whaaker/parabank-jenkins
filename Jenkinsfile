@@ -403,7 +403,7 @@ pipeline {
                     docker run \
                     -u ${jenkins_uid}:${jenkins_gid} \
                     --rm -i \
-                    --name loadtest \
+                    --name loadtest1 \
                     -e ACCEPT_EULA=true \
                     -v "$PWD/parabank-jenkins/soatest:/usr/local/parasoft/soatest" \
                     -w "/usr/local/parasoft" \
