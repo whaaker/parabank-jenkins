@@ -26,7 +26,7 @@ public class BillPayTest {
 	 * or use System.setProperty("PARABANK_BASE_URL", "http://localhost:8080") to change base URL at run time.
 	 */
 	private static final String PARABANK_BASE_URL = "http://parabank-baseline:8080";
-	private static final String CHROME_DRIVER = "/opt/selenium/chromedriver-118.0.5993.70";
+	private static final String CHROME_DRIVER = "/opt/selenium/chromedriver-128.0.6613.86";
 	private static final String GRID_URL = "http://selenium-chrome:4444/wd/hub";
 
 	private RemoteWebDriver driver;
